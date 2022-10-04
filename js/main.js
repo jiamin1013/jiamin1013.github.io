@@ -178,6 +178,19 @@
 		});
 
 	};
+  
+  // customized by Jiamin to resolve edge cases
+  window.onscroll = function() {
+  	var $el = $('#navbar > ul');
+    if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
+		  $el.find('li').removeClass('active');
+		  $el.find('a[data-nav-section="contact"]').closest('li').addClass('active');
+    };
+    if (window.pageYOffset == 0) {
+		  $el.find('li').removeClass('active');
+		  $el.find('a[data-nav-section="about"]').closest('li').addClass('active');
+    };
+  };
 
 	var navigationSection = function() {
 
